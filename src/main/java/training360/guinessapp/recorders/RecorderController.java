@@ -1,5 +1,6 @@
 package training360.guinessapp.recorders;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import training360.guinessapp.dto.RecorderCreateCommand;
 import training360.guinessapp.dto.RecorderDto;
@@ -23,6 +24,7 @@ public class RecorderController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public RecorderDto addNewRecorder(@Valid @RequestBody RecorderCreateCommand command) {
         return recorderService.addNewRecorder(command);
     }

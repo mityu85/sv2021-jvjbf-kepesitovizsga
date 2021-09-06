@@ -3,6 +3,7 @@ package training360.guinessapp.recorders;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import training360.guinessapp.worldrecords.WorldRecord;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,4 +28,7 @@ public class Recorder {
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+
+//    @ManyToOne
+//    private WorldRecord worldRecord;
 }
