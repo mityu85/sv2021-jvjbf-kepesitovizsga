@@ -2,6 +2,7 @@ package training360.guinessapp.recorders;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import training360.guinessapp.dto.RecorderCreateCommand;
 import training360.guinessapp.dto.RecorderDto;
@@ -19,7 +20,7 @@ public class RecorderService {
 
 
     public List<RecorderShortDto> getRecordersList() {
-        return recorderRepository.findAll().stream()
+        return recorderRepository.findAll(Sort.by(Sort.Direction.DESC, "name")).stream()
                 .filter(recorder -> recorder.getName().contains("e") || recorder.getName().startsWith("B"))
                 .map(recorder -> modelMapper.map(recorder, RecorderShortDto.class))
                 .collect(Collectors.toList());
