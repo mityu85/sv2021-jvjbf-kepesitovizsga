@@ -1,4 +1,4 @@
-package training360.guinessapp;
+package training360.guinessapp.recorders;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "recorders")
+@Table(name = "recorder")
 public class Recorder {
+
+    public Recorder(String name, LocalDate dateOfBirth) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

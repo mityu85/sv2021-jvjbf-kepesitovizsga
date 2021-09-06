@@ -1,4 +1,4 @@
-create table worldrecords(
+create table world_record(
     id bigint not null auto_increment,
     description varchar(250),
     value double,
