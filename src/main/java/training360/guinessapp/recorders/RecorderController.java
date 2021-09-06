@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import training360.guinessapp.dto.RecorderCreateCommand;
 import training360.guinessapp.dto.RecorderDto;
+import training360.guinessapp.dto.RecorderShortDto;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,7 +20,7 @@ public class RecorderController {
     }
 
     @GetMapping
-    public List<RecorderDto> getRecordersList() {
+    public List<RecorderShortDto> getRecordersList() {
         return recorderService.getRecordersList();
     }
 

@@ -5,6 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import training360.guinessapp.dto.RecorderCreateCommand;
 import training360.guinessapp.dto.RecorderDto;
+import training360.guinessapp.dto.RecorderShortDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,9 +18,10 @@ public class RecorderService {
     private RecorderRepository recorderRepository;
 
 
-    public List<RecorderDto> getRecordersList() {
+    public List<RecorderShortDto> getRecordersList() {
         return recorderRepository.findAll().stream()
-                .map(recorder -> modelMapper.map(recorder, RecorderDto.class))
+                .filter(recorder -> recorder.getName().contains("e") || recorder.getName().startsWith("B"))
+                .map(recorder -> modelMapper.map(recorder, RecorderShortDto.class))
                 .collect(Collectors.toList());
     }
 
