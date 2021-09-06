@@ -27,5 +27,6 @@ public class WorldRecordCreateCommand {
     @NotNull
     private LocalDate dateOfRecord;
 
+    @NotNull
     private Long recorderId;
 }
